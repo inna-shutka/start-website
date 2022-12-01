@@ -1,0 +1,101 @@
+//Currency
+@mixin currency($sym) {
+	&::after {
+		content: "#{$sym}";
+	}
+}
+
+// Grids
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+	display: grid;
+	gap: $gap;
+	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
+
+//Text
+@mixin text($font-size, $font-weight, $color, $line-height: initial) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+    line-height: $line-height;
+}
+
+// Flex
+@mixin flex($jc: flex-start, $ai: stretch, $direction: row, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $wrap;
+}
+
+//Size - block
+@mixin size($size, $rounded: false) {
+    width: $size;
+    height: $size;
+    @if $rounded {
+        border-radius: 50%;
+    }
+}
+
+//SVG 
+@mixin svg($size, $color) {
+    @include size($size);
+    fill: $color;
+}
+
+//Margin center
+@mixin margin-center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+//Pseudo class
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+//Placeholder
+@mixin input-placeholder {
+    &.placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+//Transition
+@mixin transition($transition-properties...) {
+	transition-property: $transition-properties;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+
+// Border solid
+@mixin border($color: transparent) {
+	border: 1px solid $color;
+}
+
+//Background image
+@mixin background-image($position: false) {
+background-size: cover;
+background-repeat: no-repeat;
+	@if $position {
+		background-position: $position;
+	}
+	@content;
+}

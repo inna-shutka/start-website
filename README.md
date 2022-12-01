@@ -2,11 +2,17 @@ Start website development config
 
 How to use?
 
-Run once (if you don't have packages)
+
+Run once (if you don't have packages):
+
     npm run install:globaly
 
-Development
+
+
+Development:
     npm run dev
 
-Build
+
+
+Build:
     npm run build
